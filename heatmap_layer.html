@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.4.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-map-container {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+#map {
+  pointer-events: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+#deckgl-overlay {
+  z-index: 2;
+  background: none;
+}
+
+#deck-map-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const jsonInput = {"initialViewState": {"bearing": 45, "latitude": 32.87788317, "longitude": -117.2372732, "pitch": 50, "zoom": 15}, "layers": [{"@@type": "HeatmapLayer", "aggregation": "MEAN", "colorRange": "@@=Colour", "data": [{"Colour": [[240, 249, 232], [204, 235, 197], [168, 221, 181], [123, 204, 196], [67, 162, 202], [8, 104, 172]], "Location": "BatteryStorage.csv", "Time": "10.792", "coloursG": 0, "coloursR": 255, "lat": 32.88056903, "lng": -117.2409977, "time_0": "-606.465", "time_100": "-606.697", "time_1000": "-4.068", "time_1015": "195.682", "time_1030": "195.272", "time_1045": "195.661", "time_1100": "193.486", "time_1115": "195.334", "time_1130": "195.403", "time_1145": "195.674", "time_115": "-606.546", "time_1200": "10.606", "time_1215": "10.527", "time_1230": "10.751", "time_1245": "10.916", "time_130": "-606.115", "time_1300": "10.505", "time_1315": "10.132", "time_1330": "10.253", "time_1345": "10.61", "time_1400": "11.056", "time_1415": "10.856", "time_1430": "10.792", "time_1445": "10.782", "time_145": "-606.44", "time_15": "-606.476", "time_1500": "10.958", "time_1515": "10.654", "time_1530": "10.509", "time_1545": "10.643", "time_1600": "10.657", "time_1615": "477.267", "time_1630": "476.919", "time_1645": "477.074", "time_1700": "476.867", "time_1715": "477.252", "time_1730": "476.794", "time_1745": "477.459", "time_1800": "477.179", "time_1815": "476.639", "time_1830": "477.226", "time_1845": "477.086", "time_1900": "476.57", "time_1915": "477.971", "time_1930": "477.791", "time_1945": "476.749", "time_200": "-606.213", "time_2000": "476.7", "time_2015": "476.716", "time_2030": "-4.064", "time_2045": "-4.077", "time_2100": "-4.109", "time_2115": "-4.076", "time_2130": "-4.086", "time_2145": "-4.091", "time_215": "-606.566", "time_2200": "-4.095", "time_2215": "-4.101", "time_2230": "-4.159", "time_2245": "-4.151", "time_230": "-606.52", "time_2300": "-4.047", "time_2315": "-4.104", "time_2330": "-4.142", "time_2345": "-607.088", "time_245": "-607.185", "time_30": "-606.068", "time_300": "-606.788", "time_315": "-607.043", "time_330": "-607.077", "time_345": "-607.078", "time_400": "-606.981", "time_415": "-606.963", "time_430": "-508.073", "time_445": "-4.154", "time_45": "-606.125", "time_500": "-4.154", "time_515": "-4.17", "time_530": "-4.119", "time_545": "-4.132", "time_600": "-4.162", "time_615": "-4.116", "time_630": "-4.117", "time_645": "-4.118", "time_700": "-4.134", "time_715": "-4.145", "time_730": "-4.147", "time_745": "-4.121", "time_800": "-4.198", "time_815": "-4.133", "time_830": "-4.068", "time_845": "-4.065", "time_900": "-4.09", "time_915": "-4.098", "time_930": "-4.056", "time_945": "-4.076"}, {"Colour": [[240, 249, 232], [204, 235, 197], [168, 221, 181], [123, 204, 196], [67, 162, 202], [8, 104, 172]], "Location": "ThermalStorage.csv", "Time": 17.84, "coloursG": 0, "coloursR": 255, "lat": 32.87363245, "lng": -117.2390973, "time_0": 18.65, "time_100": 18.62, "time_1000": 16.66, "time_1015": 18.28, "time_1030": 19.91, "time_1045": 18.9, "time_1100": 32.26, "time_1115": 28.17, "time_1130": 27.44, "time_1145": 20.41, "time_115": 18.59, "time_1200": 28.59, "time_1215": 18.23, "time_1230": 20.1, "time_1245": 17.89, "time_130": 18.87, "time_1300": 18.0, "time_1315": 27.1, "time_1330": 21.34, "time_1345": 18.79, "time_1400": 20.92, "time_1415": 16.07, "time_1430": 17.84, "time_1445": 25.34, "time_145": 18.9, "time_15": 18.56, "time_1500": 24.05, "time_1515": 13.69, "time_1530": 14.14, "time_1545": 14.62, "time_1600": 13.02, "time_1615": 13.24, "time_1630": 12.85, "time_1645": 24.0, "time_1700": 12.85, "time_1715": 14.81, "time_1730": 16.3, "time_1745": 14.95, "time_1800": 16.24, "time_1815": 15.85, "time_1830": 15.85, "time_1845": 15.85, "time_1900": 25.17, "time_1915": 15.9, "time_1930": 15.85, "time_1945": 14.31, "time_200": 21.31, "time_2000": 16.18, "time_2015": 15.9, "time_2030": 15.88, "time_2045": 14.62, "time_2100": 16.58, "time_2115": 16.38, "time_2130": 14.73, "time_2145": 26.35, "time_215": 19.94, "time_2200": 16.04, "time_2215": 16.18, "time_2230": 17.89, "time_2245": 13.47, "time_230": 21.62, "time_2300": 22.15, "time_2315": 13.66, "time_2330": 22.54, "time_2345": 13.61, "time_245": 22.74, "time_30": 18.82, "time_300": 22.99, "time_315": 22.82, "time_330": 22.79, "time_345": 37.49, "time_400": 28.7, "time_415": 36.93, "time_430": 28.2, "time_445": 26.71, "time_45": 27.8, "time_500": 27.55, "time_515": 27.22, "time_530": 26.77, "time_545": 26.15, "time_600": 26.63, "time_615": 26.49, "time_630": 26.24, "time_645": 23.8, "time_700": 22.71, "time_715": 23.1, "time_730": 20.92, "time_745": 20.64, "time_800": 19.85, "time_815": 26.74, "time_830": 20.1, "time_845": 15.29, "time_900": 17.02, "time_915": 14.2, "time_930": 12.38, "time_945": 10.39}, {"Colour": [[232, 249, 240], [197, 235, 204], [181, 221, 168], [196, 204, 123], [202, 162, 67], [172, 104, 8]], "Location": "TradeStreetBattery.csv", "Time": -0.961, "coloursG": 0, "coloursR": 255, "lat": 32.88946906, "lng": 117.1593596, "time_0": 4.437, "time_100": -2.077, "time_1000": 49.16, "time_1015": -0.94, "time_1030": -0.95, "time_1045": -0.954, "time_1100": -0.95, "time_1115": -0.952, "time_1130": -0.951, "time_1145": -0.947, "time_115": 3.24, "time_1200": -0.947, "time_1215": -0.946, "time_1230": -0.946, "time_1245": -0.949, "time_130": 7.831, "time_1300": -0.948, "time_1315": -0.95, "time_1330": -0.953, "time_1345": -0.955, "time_1400": -0.955, "time_1415": -0.961, "time_1430": -0.961, "time_1445": -0.962, "time_145": 5.974, "time_15": 6.827, "time_1500": -0.958, "time_1515": -0.961, "time_1530": -0.962, "time_1545": -0.961, "time_1600": -0.956, "time_1615": -0.956, "time_1630": -0.957, "time_1645": -0.959, "time_1700": -0.961, "time_1715": -0.96, "time_1730": -0.959, "time_1745": -1.763, "time_1800": -8.795, "time_1815": -5.161, "time_1830": -4.498, "time_1845": -3.112, "time_1900": -7.784, "time_1915": -3.452, "time_1930": -3.347, "time_1945": -1.682, "time_200": 6.866, "time_2000": -1.124, "time_2015": 4.282, "time_2030": 5.154, "time_2045": 7.046, "time_2100": 2.953, "time_2115": -0.631, "time_2130": 5.533, "time_2145": 4.457, "time_215": 7.269, "time_2200": 6.854, "time_2215": 0.158, "time_2230": 2.677, "time_2245": 1.176, "time_230": 6.886, "time_2300": 0.507, "time_2315": 0.291, "time_2330": -0.953, "time_2345": -0.956, "time_245": 6.407, "time_30": 6.064, "time_300": 5.368, "time_315": 0.949, "time_330": 2.038, "time_345": 1.301, "time_400": 1.269, "time_415": 0.725, "time_430": 1.129, "time_445": -0.76, "time_45": 5.721, "time_500": -0.947, "time_515": -0.947, "time_530": -0.954, "time_545": -1.6, "time_600": -2.084, "time_615": -1.696, "time_630": -3.69, "time_645": -18.278, "time_700": -26.922, "time_715": -39.427, "time_730": -41.306, "time_745": -26.916, "time_800": -14.724, "time_815": -18.337, "time_830": -14.71, "time_845": 0.173, "time_900": 21.324, "time_915": 33.979, "time_930": 60.447, "time_945": 71.742}], "getPosition": "@@=[lng, lat]", "getWeight": "@@=weight", "id": "0a7572db-38b5-41ea-b767-83b99fda6c37", "opacity": 0.9, "pickable": true, "threshold": 1}], "mapProvider": "mapbox", "mapStyle": "mapbox://styles/mapbox/satellite-v9", "views": [{"@@type": "MapView", "controller": true}]};
+    const tooltip = {'text': 'Concentration of cattle in blue, concentration of poultry in orange'};
+    const customLibraries = null;
+
+    const deckInstance = createDeck({
+            mapboxApiKey: 'pk.eyJ1IjoidGN5Y2xvbmUiLCJhIjoiY2wwYWx5aW14MG9pdjNjbW8zdmE0dGJkNCJ9.u7D4yFZRHo0PIT45jRuQsA',
+                  container: document.getElementById('deck-container'),
+      jsonInput,
+      tooltip,
+      customLibraries
+    });
+
+  </script>
+</html>
